@@ -1,0 +1,153 @@
+@import "bootstrap"
+
+a
+  cursor: pointer
+
+.container
+  max-width: 100%
+
+.magic.normal_damage,
+.healer.normal_damage,
+.tank.magical_damage,
+.balance.magical_damage,
+.claw.magical_damage,
+.shooter.magical_damage
+  color: gray
+
+#heroes
+  td.name
+    width: 100px
+
+#heroes_types
+  li
+    height: 70px
+    width: 125px
+    background-image: url("images/types.jpg")
+    cursor: pointer
+  .tank
+    background-position: 0px -74px
+  .tank:hover, .tank.active
+    background-position: 0 0
+  .shooter
+    background-position: -125px -74px
+  .shooter:hover, .shooter.active
+    background-position: -125px 0
+  .claw
+    background-position: -250px -74px
+  .claw:hover, .claw.active
+    background-position: -250px 0
+  .magic
+    background-position: -375px -74px
+  .magic:hover, .magic.active
+    background-position: -375px 0
+  .healer
+    background-position: -500px -74px
+  .healer:hover, .healer.active
+    background-position: -500px 0
+  .balance
+    background-position: -625px -74px
+  .balance:hover, .balance.active
+    background-position: -625px 0
+
+#heroes_attrs
+  li
+    width: 50px
+    height: 55px
+    background-image: url("images/attrs.jpg")
+    cursor: pointer
+  .all
+    background-position: 0px 0px
+  .all:hover, .all.active
+    background-position: 0px -59px
+  .normal
+    background-position: -60px 0px
+  .normal:hover, .normal.active
+    background-position: -60px -59px
+  .grass
+    background-position: -120px 0px
+  .grass:hover, .grass.active
+    background-position: -120px -59px
+  .water
+    background-position: -180px 0
+  .water:hover, .water.active
+    background-position: -180px -59px
+  .fire
+    background-position: -240px 0
+  .fire:hover, .fire.active
+    background-position: -240px -59px
+  .wind
+    background-position: -300px 0
+  .wind:hover, .wind.active
+    background-position: -300px -59px
+  .soil
+    background-position: -360px 0
+  .soil:hover, .soil.active
+    background-position: -360px -59px
+  .elec
+    background-position: -420px 0
+  .elec:hover, .elec.active
+    background-position: -420px -59px
+  .ice
+    background-position: -480px 0
+  .ice:hover, .ice.active
+    background-position: -480px -59px
+  .dargon
+    background-position: -540px 0
+  .dargon:hover, .dargon.active
+    background-position: -540px -59px
+  .dark
+    background-position: -600px 0
+  .dark:hover, .dark.active
+    background-position: -600px -59px
+  .light
+    background-position: -660px 0
+  .light:hover, .light.active
+    background-position: -660px -59px
+  .machine
+    background-position: -720px 0
+  .machine:hover, .machine.active
+    background-position: -720px -59px
+  .fly
+    background-position: -780px 0
+  .fly:hover, .fly.active
+    background-position: -780px -59px
+  .food
+    background-position: -840px 0
+  .food:hover, .food.active
+    background-position: -840px -59px
+  .wu
+    background-position: -897px 0
+  .wu:hover, .wu.active
+    background-position: -897px -59px
+  .super
+    background-position: -957px 0
+  .super:hover, .super.active
+    background-position: -957px -59px
+  .huan
+    background-position: -1017px 0
+  .huan:hover, .huan.active
+    background-position: -1017px -59px
+  .evil
+    background-position: -1078px 0
+  .evil:hover, .evil.active
+    background-position: -1078px -59px
+  .cute
+    background-position: -1131px 0
+  .cute:hover, .cute.active
+    background-position: -1131px -59px
+  .fighter
+    background-position: -1185px 0
+  .fighter:hover, .fighter.active
+    background-position: -1185px -59px
+
+#attr-conflict
+  li
+    padding-bottom: 6px
+
+  .defence_add
+    .tank, .balance, .healer
+      color: gray
+
+  .attack_add
+    .claw, .magic, .shooter 
+      color: gray

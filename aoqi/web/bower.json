@@ -1,0 +1,10 @@
+{
+  "name": "hello",
+  "version": "0.0.1",
+  "dependencies": {
+    "pd": "latest",
+    "jquery": "latest",
+    "underscore": "~1.5.1",
+    "bootstrap": "~3.0.0-rc1"
+  }
+}

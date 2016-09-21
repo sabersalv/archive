@@ -1,0 +1,32 @@
+require "pd"
+require "rake-pipeline"
+
+class ProductionFilter < Rake::Pipeline::Filter
+  # strip --[[rm comment
+  def strip_comment(data)
+    data.gsub!(/^-*--\[\[rm.*--\]\] *\n/m, "")
+    #data.gsub!(/^.*extensions\.weihou\..*\n/, "")
+  end
+
+  def generate_output(inputs, output)
+    inputs.each do |input|
+      result = File.read(input.fullpath)
+      strip_comment(result)
+      output.write result
+    end
+  end
+end
+
+NAME = "longfeng"
+
+output "dist/extensions"
+
+input "extensions" do
+  match "*.lua" do
+    filter ProductionFilter
+
+    concat "#{NAME}.lua"
+  end
+end
+
+# vim: ft=ruby

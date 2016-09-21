@@ -1,0 +1,30 @@
+<div id="attr-conflict">
+	<section>
+		<h3>防御增强</h3>
+			<ul class="defence_add">
+				{{#each defence_add}}
+				<li><span>{{name2}}: </span>{{#each heroes}}<span {{bindAttr class="type.name"}}>{{name2}} </span>{{/each}}</li>
+				{{/each}}
+			</ul>
+	</section>
+	<section>
+		<h3>防御削弱</h3>
+		{{#each defence_reduce}}
+			{{name2}}
+		{{/each}}
+	</section>
+	<section>
+		<h3>攻击削弱</h3>
+		{{#each attack_reduce}}
+			{{name2}}
+		{{/each}}
+	</section>
+	<section>
+		<h3>攻击增强</h3>
+			<ul class="attack_add">
+				{{#each attack_add}}
+				<li><span>{{name2}}: </span>{{#each heroes}}<span {{bindAttr class="type.name"}}>{{name2}} </span>{{/each}}</li>
+				{{/each}}
+		</ul>
+	</section>
+</div>

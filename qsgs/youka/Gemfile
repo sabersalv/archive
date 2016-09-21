@@ -1,0 +1,6 @@
+source "http://rubygems.org"
+
+gem "pd"
+gem "rack"
+
+gem "rake-pipeline", :git => "https://github.com/livingsocial/rake-pipeline.git"

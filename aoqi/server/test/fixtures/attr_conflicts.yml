@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  attack_id: 
+  defence: 
+  result: 1
+
+two:
+  attack_id: 
+  defence: 
+  result: 1

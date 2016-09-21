@@ -1,0 +1,97 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12 filter">
+<ul id="heroes_types" class="list-inline">
+	{{#each types}}
+		<li {{action filter "type.name" name}} {{bindAttr class="name"}}></li>
+	{{/each}}
+</ul>
+
+<ul id="heroes_attrs" class="list-inline">
+	<li {{action filter "all.name" "all"}} class="all active"></li>
+	{{#each attrs}}
+	<li {{action filter "attr.name" name}} {{bindAttr class="name"}}></li>
+	{{/each}}
+</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-10">
+<table id="heroes" class="table">
+	<tr>
+		<th {{action sort 'name'}}>名称</th>
+		<th {{action sort 'attr_id'}}>属性</th>
+		<th {{action sort 'type_id'}}>类型</th>
+		<th {{action sort 'damageSum'}}>战斗力</th>
+		<th {{action sort 'hp'}}>生命</th>
+		<th {{action sort 'normalDamage'}} {{bindAttr class=":normal_damage currentFilter"}}>物攻</th>
+		<th {{action sort 'normalArmor'}}>物防</th>
+		<th {{action sort 'magicalDamage'}} {{bindAttr class=":magical_damage currentFilter"}}>魔攻</th>
+		<th {{action sort 'magicalArmor'}}>魔防</th>
+		<th {{action sort 'superDamage'}}>超攻</th>
+		<th {{action sort 'superArmor'}}>超防</th>
+		<th {{action sort 'speed'}}>速度</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>{{maxHP}}</td>
+		<td {{bindAttr class=":normal_damage currentFilter"}}>{{maxNormalDamage}}</td>
+		<td>{{maxNormalArmor}}</td>
+		<td {{bindAttr class=":magical_damage currentFilter"}}>{{maxMagicalDamage}}</td>
+		<td>{{maxMagicalArmor}}</td>
+		<td>{{maxSuperDamage}}</td>
+		<td>{{maxSuperArmor}}</td>
+		<td>{{maxSpeed}}</td>
+	</tr>
+
+	{{#each r in controller}}
+	<tr>
+		<td {{action selectHero r}}>{{r.name2}}</td>
+		<td>{{r.attr.name2}}</td>
+		<td>{{r.type.name2}}</td>
+		<td>{{r.damageSum}}</td>
+		<td>{{r.hp}}</td>
+		<td {{bindAttr class=":normal_damage currentFilter"}}>{{r.normalDamage}}</td>
+		<td>{{r.normalArmor}}</td>
+		<td {{bindAttr class=":magical_damage currentFilter"}}>{{r.magicalDamage}}</td>
+		<td>{{r.magicalArmor}}</td>
+		<td>{{r.superDamage}}</td>
+		<td>{{r.superArmor}}</td>
+		<td>{{r.speed}}</td>
+	</tr>
+	{{/each}}
+</table>
+		</div>
+		<div class="col-2">
+<table id="cmp" class="table">
+	<tr>
+		<td>生命:</td><td>{{cmpHP}}</td>
+	</tr>
+	<tr {{bindAttr class=":normal_damage currentFilter"}}>
+		<td>物攻:</td><td>{{cmpNormalDamage}}</td>
+	</tr>
+		<td>物防:</td><td>{{cmpNormalArmor}}</td>
+	<tr {{bindAttr class=":magical_damage currentFilter"}}>
+		<td>魔攻:</td><td>{{cmpMagicalDamage}}</td>
+	</tr>
+	<tr>
+		<td>魔防:</td><td>{{cmpMagicalArmor}}</td>
+	</tr>
+	<tr>
+		<td>超攻:</td><td>{{cmpSuperDamage}}</td>
+	</tr>
+	<tr>
+		<td>超防:</td><td>{{cmpSuperArmor}}</td>
+	</tr>
+	<tr>
+		<td>速度:</td><td>{{cmpSpeed}}</td>
+	</tr>
+	<tr>
+</table>
+		</div>
+	</div>
+</div>

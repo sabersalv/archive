@@ -1,0 +1,9 @@
+<div class="navbar navabr-fixed-top">
+	<a class="navbar-brand" href="#">奥奇传说</a>
+	<ul class="nav navbar-nav">
+		{{#linkTo "heroes" tagName="li"}}<a {{bindAttr href="view.href"}}>精灵大全</a>{{/linkTo}}
+		{{#linkTo "attrs" tagName="li"}}<a {{bindAttr href="view.href"}}>属性相克</a>{{/linkTo}}
+	</ul>
+</div>
+
+{{outlet}}

@@ -1,0 +1,8 @@
+source "https://rubygems.org"
+
+gem "pd"
+gem "middleman", "~>3.1.4"
+gem "sprockets-handlebars_template", :require => "sprockets/ember_handlebars_template"
+#gem "barber", "0.4.2"
+#gem "handlebars-source", "1.0.12"
+#gem "ember-source", "1.0.0.rc6.4"

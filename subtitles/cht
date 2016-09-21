@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+function run(){
+  echo "$ $*"
+  $*
+}
+
+out=`echo $1 | sed s/\.chs/.cht/`
+run cconv -f utf8-cn -t utf8-tw $1 -o $out

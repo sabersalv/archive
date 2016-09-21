@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function run() {
+	echo $*
+	$*
+}
+
+case $1 in
+	s | server )
+		run bundle exec rails server -p 3000
+	;;
+esac

@@ -1,0 +1,18 @@
+App.Hero = DS.Model.extend
+  name: DS.attr("string")
+  name2: DS.attr("string")
+  skill1: DS.attr("string")
+  skill2: DS.attr("string")
+  skill3: DS.attr("string")
+  damageSum: DS.attr("number")
+  hp: DS.attr("number")
+  speed: DS.attr("number")
+  normalDamage: DS.attr("number")
+  magicalDamage: DS.attr("number")
+  superDamage: DS.attr("number")
+  normalArmor: DS.attr("number")
+  magicalArmor: DS.attr("number")
+  superArmor: DS.attr("number")
+
+  type: DS.belongsTo("App.Type")
+  attr: DS.belongsTo("App.Attr")

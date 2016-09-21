@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function run() {
+	echo $*
+	$*
+}
+
+case $1 in
+	s | server )
+		run bundle exec middleman server -p 3001
+	;;
+esac

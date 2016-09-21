@@ -1,0 +1,114 @@
+[ # Type
+  [ "tank", "肉盾" ],
+  [ "balance", "平衡" ],
+  [ "magic", "魔法" ],
+  [ "shooter", "射击" ],
+  [ "claw", "利爪" ],
+  [ "healer", "治疗" ],
+].each { |name, name2|
+  Type.create!(name: name, name2: name2)
+}
+
+[ # Attr
+  [ "dark", "暗" ],
+  [ "fire", "火" ],
+  [ "super", "超能" ],
+  [ "evil", "恶魔" ],
+  [ "elec", "电" ],
+  [ "dargon", "龙" ],
+  [ "light", "光" ],
+  [ "grass", "草" ],
+  [ "machine", "机械" ],
+  [ "water", "水" ],
+  [ "fly", "飞行" ],
+  [ "soil", "土" ],
+  [ "wu", "武" ],
+  [ "wind", "风" ],
+  [ "huan", "幻化" ],
+  [ "ice", "冰"],
+  [ "food", "美食" ],
+  [ "cute", "萌" ],
+  [ "normal", "普通" ],
+].each { |name, name2|
+  Attr.create!(name: name, name2: name2)
+}
+
+[ # AttrConflict
+  [ "dark", %w[grass machine wu elec fire water huan food], 1 ], 
+  [ "dark", %w[light super evil cute], -1 ],
+  [ "fire", %w[grass machine fly dark evil ice food], 1 ],
+  [ "fire", %w[dargon light soil water], -1 ],
+  [ "super", %w[machine wu water dark evil cute], 1],
+  [ "super", %w[dargon grass elec], -1],
+  [ "evil", %w[machine wu fly dark evil cute], 1],
+  [ "evil", %w[grass light water fire super], -1],
+  [ "elec", %w[light fly dark super huan], 1],
+  [ "elec", %w[water machine], -1 ],
+  [ "dargon", %w[dark], 1 ],
+  [ "light", %w[grass fire water evil dark], 1],
+  [ "light", %w[elec huan cute], -1],
+  [ "grass", %w[super evil elec water soil], 1], 
+  [ "grass", %w[dargon light fly fire dark ], -1],
+  [ "machine", %w[soil ice food], 1],
+  [ "machine", %w[grass water evil dark huan], -1],
+  [ "water", %w[fire evil elec], 1],
+  [ "water", %w[dargon machine grass soil light super], -1],
+  [ "fly", %w[grass wu super cute], 1],
+  [ "fly", %w[machine wind elec], -1],
+  [ "soil", %w[wind dark water cute], 1],
+  [ "soil", %w[machine wu fly huan], -1],
+  [ "wu", %w[soil dark ice normal], 1],
+  [ "wu", %w[light super evil fly food], -1],
+  [ "wind", %w[soil wind dark], 1],
+  [ "wind", %w[machine wu fly], -1],
+  [ "huan", %w[soil light dark cute], 1],
+  [ "huan", %w[dargon ice food], -1],
+  [ "ice", %w[dargon grass fly soil], 1],
+  [ "ice", %w[machine ice fly fire], -1],
+  [ "food", %w[wu dark huan], 1],
+  [ "food", %w[dargon machine grass water cute], -1],
+  [ "cute", %w[fire food], 1],
+  [ "cute", %w[dargon soil fly evil normal], -1],
+].each { |attack, defences, result|
+  defences.each { |defence|
+    AttrConflict.create!(attack: Attr.find_by_name(attack), defence: Attr.find_by_name(defence), result: result)
+  }
+}
+
+[ # Hero
+  %w[ hjsl 黄金圣龙 龙 肉盾 ]      + [ 3601, 3896, 3144, 2930, 3553,  9876, 9132, 9716, 247 ] + 	
+  %w[ ls 洛萨 土 平衡 ]            + [ 3551, 5064, 2216, 2930, 2871, 12432, 6648, 7616, 269 ],
+  %w[ xc 星辰 飞行 平衡	]          + [ 3501, 4512, 2064, 2930, 2233, 11712, 6192, 6416, 263 ],
+  %w[ dlmm 哆啦梦梦 机械 肉盾	]    + [ 3501, 4024, 2824, 2930, 2123,  8832, 8232, 8876, 251 ],
+  %w[ ahmm 暗黑梦梦 暗 魔法	]      + [ 3501, 2744,  744, 7180, 3223, 13872, 2232, 5516, 245 ],
+  %w[ rxmm 热血梦梦 火 利爪	]      + [ 3501, 5624,  744, 2930, 1023, 13872, 2232, 6716, 299 ],
+  %w[ ljmm 炼金梦梦 土 平衡	]      + [ 3501, 5048, 2184, 2930, 2343, 10992, 6552, 7436, 256 ],
+  %w[ axmm 爱心梦梦	水 治疗	]      + [ 3501, 2744, 1944, 5910, 3223, 12912, 5832, 6356, 227 ],
+  %w[ ny 诺亚 超能 魔法 ]          + [ 3451, 2744, 1496, 7510, 3597, 14328, 2232, 5672, 248 ],
+  %w[ dst 帝释天 光 射击 ]         + [ 3451, 5768, 1768, 2930, 2101, 15000, 5688, 5552, 281 ],
+  %w[ xe 修尔 恶魔 利爪	]          + [ 3401, 6008, 1416, 2930, 1947, 14064, 6242, 6116, 298 ],
+  %w[ sqmz 圣骑·迷踪	草	肉盾 ]   + [ 3551, 3984, 3084, 2930, 3278,  9924, 9312, 9536, 249 ],
+  %w[ xg 星格 电 利爪 ]            + [ 3451, 6024, 1344, 2930, 1848,  7992, 4632, 5876, 296 ],
+  %w[ kjczz 空间创造者 超能 平衡 ] + [ 3451, 4888, 2144, 2930, 2948, 12744, 6072, 7616, 266 ],
+  %w[ xll 星·蓝龙 龙 魔法	]        + [ 3401, 2744, 1060, 7075, 3113, 13632, 2232, 5696, 239 ],
+  %w[ sqgl 圣骑·光轮 超能 魔法 ]   + [ 3551, 2744, 1020, 7675, 3773, 14424, 2232, 5624, 248 ], 
+  %w[ sqyl 圣骑·阎罗 恶魔 利爪 ]   + [ 3551, 6128, 1664, 2930, 1628, 14544, 2232, 6476, 298 ],
+  %w[ la 里奥 超能 利爪 ]          + [ 3351, 5888, 1344, 2930, 1285, 13512, 2232, 6236, 293 ],
+  %w[ ks 凯瑟 火 肉盾 ]            + [ 3351, 3944, 2824, 2930, 2403,  9792, 8052, 9050, 250 ],
+  %w[ tls 托鲁斯 武 肉盾 ]         + [ 3351, 3928, 3016, 2930, 2167,  9786, 8220, 9050, 250 ],
+  %w[ jes 吉尔斯 幻化 利爪 ]       + [ 3351, 5852, 1264, 2930, 1463, 14332, 2232, 5946, 293 ],
+  %w[ pxs 帕希斯 水 射击 ]         + [ 3351, 5544, 1124, 2930, 2178, 14208, 5832, 5306, 275 ], 
+  %w[ kp 卡普 冰 魔法 ]            + [ 3351, 2744,  744, 7025, 3047, 13824, 2232, 5036, 241 ],
+  %w[ ars 艾瑞斯 风 治疗 ]         + [ 3351, 2744, 1624, 6180, 3058, 13752, 5220, 6476, 230 ],
+  %w[ jcsd 金翅神雕 飞行 利爪 ]    + [ 3351, 5904, 1140, 2930, 1347, 13872, 2232, 6296, 296 ],
+  %w[ lydll 烈焰德鲁拉 火 利爪 ]   + [ 3351, 5924, 1344, 2930, 1353, 13752, 2232, 5996, 295 ],
+  %w[ jfsss 疾风神射手 风 射击 ]   + [ 3351, 5544, 1584, 2930, 1023, 14652, 4992, 5486, 278 ],
+  %w[ ymlz 幽冥灵主 恶魔 射击 ]    + [ 3351, 5464, 1140, 2930, 1567, 14460, 5352, 5216, 275 ],
+  %w[ jtqls 九天青麟兽 风 魔法 ]   + [ 3351, 2744, 1140, 7250, 3333, 13512, 2232, 5096, 244 ],
+  %w[ zczx  仲裁者X 幻化 魔法 ]    + [ 3351, 2744,  744, 7295, 3179, 14064, 2232, 5492, 243 ],
+  %w[ zx 醉仙 武 平衡 ]            + [ 3251, 4334, 2144, 2930, 2563, 13032, 6432, 7316, 262 ],
+  %w[ ld 雷顿 电 肉盾 ]            + [ 3251, 3944, 2864, 2930, 2948, 10020, 7740, 9230, 250 ],
+].each { |name, name2, attr, type, damage_sum, normal_damage, normal_armor, magical_damage, magical_armor, super_damage, super_armor, hp, speed|
+  puts "#{name2} #{attr} #{type}"
+  Hero.create!(name: name, name2: name2, attr: Attr.find_by_name2!(attr), type_id: Type.find_by_name2!(type).id, damage_sum: damage_sum, normal_damage: normal_damage, normal_armor: normal_armor, magical_damage: magical_damage, magical_armor: magical_armor, super_damage: super_damage, super_armor: super_armor, hp: hp, speed: speed )
+}

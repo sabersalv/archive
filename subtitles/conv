@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+echo "$ iconv -f utf16 -t utf8"
+iconv -f utf16 -t utf8 "$1" | sponge "$1"
+
+echo "$ unix2dos"
+unix2dos "$1"
